@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Day Header — tap to expand/collapse -->
+        <LinearLayout
+            android:id="@+id/layout_day_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground">
+
+            <!-- Day number circle -->
+            <TextView android:id="@+id/tv_day_number"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@drawable/circle_orange"
+                android:layout_marginEnd="12dp"/>
+
+            <!-- Day info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView android:id="@+id/tv_day_label_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"/>
+
+                <TextView android:id="@+id/tv_day_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#FF6B35"/>
+
+                <TextView android:id="@+id/tv_item_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#888888"/>
+            </LinearLayout>
+
+            <!-- Expand arrow -->
+            <ImageView android:id="@+id/iv_expand_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/arrow_down_float"
+                android:contentDescription="@null"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0"/>
+
+        <!-- Day Content — expandable -->
+        <LinearLayout
+            android:id="@+id/layout_day_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Empty state for day -->
+            <TextView android:id="@+id/tv_empty_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No activities yet.\nTap ➕ to add places, food, hotels..."
+                android:textSize="13sp"
+                android:textColor="#AAAAAA"
+                android:gravity="center"
+                android:padding="16dp"
+                android:lineSpacingMultiplier="1.4"/>
+
+            <!-- Schedule items list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_schedule_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- Add to this day button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_to_day"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="➕ Add Activity"
+                android:textSize="13sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="#FF6B35"
+                android:textColor="#FF6B35"
+                app:cornerRadius="8dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
